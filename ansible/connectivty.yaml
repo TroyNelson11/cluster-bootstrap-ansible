@@ -1,7 +1,7 @@
 - name: Basic connectivity test
   hosts: all
   gather_facts: false
-  become: true
+  become: false
   tasks:
     - ansible.builtin.shell:
         cmd: oc whoami
