@@ -1,0 +1,17 @@
+---
+- name: login
+  hosts: localhost
+  gather_facts: false
+  become: false
+  vars:
+    clusterendpoint: https://api.mhjacks-aeg.blueprints.rhecoeng.com:6443
+    username: kubeadmin
+    password: 'changeme'
+  tasks:
+    - name: login
+      ansible.builtin.shell:
+        cmd: oc login --server={{ clusterendpoint }} -u {{ username }} -p {{ password }} --insecure-skip-tls-verify
+
+    - name: login
+      ansible.builtin.shell:
+        cmd: oc whoami
