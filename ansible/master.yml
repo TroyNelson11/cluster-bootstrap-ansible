@@ -13,9 +13,12 @@
         cmd: oc login --server={{ clusterendpoint }} -u {{ username }} -p {{ password }} --insecure-skip-tls-verify
 
     - name: clone
-      ansible.builtin.shell:
-        cmd: git clone https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
+      git:
+        repo: git clone https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
+        dest: /repo
+        clone: yes
+        update: yes
     
     - name: master
       ansible.builtin.shell:
-        cmd: ./scripts/bootstrap.sh
+        cmd: ./repo/scripts/bootstrap.sh
