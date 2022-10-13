@@ -21,4 +21,4 @@
     
     - name: master
       ansible.builtin.shell:
-        cmd: ./usr/tmp/cluster-bootstrap/scripts/bootstrap.sh
+        cmd: usr/tmp/cluster-bootstrap/scripts/bootstrap.sh
