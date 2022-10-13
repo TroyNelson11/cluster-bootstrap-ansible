@@ -11,6 +11,7 @@
       ansible.builtin.shell:
         cmd: oc login --server={{ clusterendpoint }} -u {{ username }} -p {{ password }} --insecure-skip-tls-verify
 
+
     - name: find
       find:
         paths:
@@ -18,19 +19,26 @@
         recurse: true
         file_type: directory
       register: results
-
-    - name: count files
+      
+    - name: find
       find:
-        path: "{{ item.path }}"
-        register: filesFound
-        loop: "{{ results.files }}"
-        
+        paths:
+          - "{{ item.path }}"
+        recurse: true
+        file_type: all
+        loop: "{{ results }}"
+        loop_control:
+          label: "{{ item.path }}"
+      register: filesFound
+
+
+
     - name: print empty dirs 
       file:
         path: "{{ item.path }}"
       when: >-
-         filesFound.matched > 0
-      loop: "{{ filesFound.files }}"
+         filesFound.matched == 0
+      loop: "{{ filesFound }}"
       loop_control:
         label: "{{ item.path }}"
 
