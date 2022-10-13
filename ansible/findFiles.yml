@@ -15,18 +15,18 @@
     - name: find
       find:
         paths:
-          - /
+          - /usr
         recurse: true
         file_type: directory
       register: results
-      
+
     - name: find
       find:
         paths:
           - "{{ item.path }}"
         recurse: true
         file_type: all
-        loop: "{{ results }}"
+        loop: "{{ results.directories }}"
         loop_control:
           label: "{{ item.path }}"
       register: filesFound
@@ -38,7 +38,7 @@
         path: "{{ item.path }}"
       when: >-
          filesFound.matched == 0
-      loop: "{{ filesFound }}"
+      loop: "{{ filesFound.directories }}"
       loop_control:
         label: "{{ item.path }}"
 
