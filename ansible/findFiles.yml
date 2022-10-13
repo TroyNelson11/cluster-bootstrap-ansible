@@ -11,27 +11,30 @@
       ansible.builtin.shell:
         cmd: oc login --server={{ clusterendpoint }} -u {{ username }} -p {{ password }} --insecure-skip-tls-verify
 
-    - find:
+    -name: find
+      find:
         paths:
           - /
         recurse: true
         file_type: any
       register: results
 
-    - file:
+    -name: not in path
+     file:
         path: "{{ item.path }}"
         mode: "u+rwX,go+rX,go-w"
       when: >-
-        "mypath/exception" not in item.path
+        "/exception" not in item.path
       loop: "{{ results.files }}"
       loop_control:
         label: "{{ item.path }}"
 
-    - file:
+    name: in path
+      file:
         path: "{{ item.path }}"
         mode: "g+w"
       when: >-
-        "mypath/exception" in item.path
+        "/exception" in item.path
       loop: "{{ results.files }}"
       loop_control:
         label: "{{ item.path }}"
