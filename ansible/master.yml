@@ -21,13 +21,13 @@
         force: yes
     - name: debugging
       debug: 
-        msg: "{{ lookup('env', 'usr') }}"
+        msg: "{{ lookup('env', 'home/runner') }}"
     - name: debugging
       debug: 
         msg: "{{ lookup('env', 'usr/tmp') }}"
     - name: master
       ansible.builtin.shell:
-        cmd: cd tmp
+        cmd: cd usr/tmp
     - name: master
       ansible.builtin.shell:
         cmd: cd cluster-bootstrap
