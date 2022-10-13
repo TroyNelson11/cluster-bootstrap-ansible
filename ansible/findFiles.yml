@@ -14,7 +14,7 @@
     - name: find
       find:
         paths:
-          - /
+          - /HOME
         recurse: true
         file_type: any
       register: results
