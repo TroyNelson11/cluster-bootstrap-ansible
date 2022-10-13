@@ -21,7 +21,7 @@
         force: yes
     - name: debugging
       debug: 
-        msg: "{{ lookup('env', 'USER') }}"
+        msg: "{{ lookup('env', 'usr') }}"
     - name: master
       ansible.builtin.shell:
         cmd: cd scripts
