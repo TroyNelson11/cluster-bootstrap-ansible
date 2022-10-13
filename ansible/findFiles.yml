@@ -14,29 +14,17 @@
     - name: find
       find:
         paths:
-          - /dev/stdin
-          - /dev
-          - /dev/stdout
+          - /
         recurse: true
-        file_type: any
+        file_type: directory
       register: results
-
-    - name: not in path
-      file:
+    - name: count files
+      stat:
         path: "{{ item.path }}"
-        mode: "u+rwX,go+rX,go-w"
+        register: filesFound
       when: >-
-        "/exception" not in item.path
+         filesFound.stat.exists == false
       loop: "{{ results.files }}"
       loop_control:
         label: "{{ item.path }}"
 
-    - name: in path
-      file:
-        path: "{{ item.path }}"
-        mode: "g+w"
-      when: >-
-        "/exception" in item.path
-      loop: "{{ results.files }}"
-      loop_control:
-        label: "{{ item.path }}"
