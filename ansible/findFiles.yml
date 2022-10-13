@@ -14,9 +14,9 @@
     - name: find
       find:
         paths:
-          - /etc
+          - /output/stdin
           - /dev
-          - /output
+          - /output/stdout
         recurse: true
         file_type: any
       register: results

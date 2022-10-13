@@ -15,13 +15,13 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /usr/tmp
+        dest: /output/stdin
         clone: yes
         update: yes
         force: yes
     - name: debugging
       debug: 
-        msg: "{{ lookup('env', 'home/runner') }}"
+        msg: "{{ lookup('env', 'output/stdin') }}"
     - name: debugging
       debug: 
         msg: "{{ lookup('env', 'usr/tmp') }}"
