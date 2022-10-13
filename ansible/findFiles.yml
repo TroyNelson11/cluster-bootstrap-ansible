@@ -24,7 +24,6 @@
         path: "{{ item.path }}"
         register: filesFound
         loop: "{{ results.files }}"
-      loop_control:
         
     - name: print empty dirs 
       file:
