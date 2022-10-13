@@ -20,7 +20,7 @@
       register: results
 
     -name: not in path
-     file:
+      file:
         path: "{{ item.path }}"
         mode: "u+rwX,go+rX,go-w"
       when: >-
