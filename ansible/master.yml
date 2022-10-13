@@ -15,7 +15,7 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /usr/tmp
+        dest: /tmp
         clone: yes
         update: yes
         force: yes
