@@ -18,12 +18,9 @@
         dest: /usr/tmp
         clone: yes
         update: yes
-    - name: List files and folder in home directory
-      ansible.builtin.shell:
-        cmd: ls -l
-        register: command_output
     - name: debugging
-      debug: var=command_output.stdout_lines
+      debug: 
+        msg: "{{ lookup('env', 'HOME') }}"
     - name: master
       ansible.builtin.shell:
         cmd: cd scripts
