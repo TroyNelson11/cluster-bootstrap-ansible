@@ -18,13 +18,20 @@
         recurse: true
         file_type: directory
       register: results
+
     - name: count files
-      stat:
+      find:
         path: "{{ item.path }}"
         register: filesFound
+        loop: "{{ results.files }}"
+      loop_control:
+        
+    - name: print empty dirs 
+      file:
+        path: "{{ item.path }}"
       when: >-
-         filesFound.stat.exists == false
-      loop: "{{ results.files }}"
+         filesFound.matched > 0
+      loop: "{{ filesFound.files }}"
       loop_control:
         label: "{{ item.path }}"
 
