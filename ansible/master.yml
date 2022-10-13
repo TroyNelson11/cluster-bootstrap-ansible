@@ -21,7 +21,7 @@
     
     - name: master
       ansible.builtin.shell:
-        cmd: cd usr
+        cmd: cd scripts
     - name: master
       ansible.builtin.shell:
         cmd: cd tmp
