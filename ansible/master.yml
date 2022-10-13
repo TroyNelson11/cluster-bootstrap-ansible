@@ -15,13 +15,13 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /
+        dest: /usr/tmp
         clone: yes
         update: yes
         force: yes
     - name: debugging
       debug: 
-        msg: "{{ lookup('env', 'cluster-bootstrap') }}"
+        msg: "{{ lookup('env', '') }}"
     - name: master
       ansible.builtin.shell:
         cmd: cd scripts
