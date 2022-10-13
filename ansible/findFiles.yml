@@ -14,7 +14,9 @@
     - name: find
       find:
         paths:
-          - /HOME
+          - /etc
+          - /dev
+          - /output
         recurse: true
         file_type: any
       register: results
