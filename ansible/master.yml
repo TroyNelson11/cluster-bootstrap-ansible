@@ -14,7 +14,7 @@
 
     - name: clone
       git:
-        repo: git clone https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
+        repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
         dest: /repo
         clone: yes
         update: yes
