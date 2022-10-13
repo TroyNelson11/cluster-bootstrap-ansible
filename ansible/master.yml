@@ -22,9 +22,8 @@
       ansible.builtin.shell:
         cmd: ls -l
         register: command_output
-
-    - debug:
-      var: command_output.stdout_lines
+    - name: debugging
+      debug: var=command_output.stdout_lines
     - name: master
       ansible.builtin.shell:
         cmd: cd scripts
