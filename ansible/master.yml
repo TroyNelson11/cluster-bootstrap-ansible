@@ -19,7 +19,8 @@
         clone: yes
         update: yes
     - name: List files and folder in home directory
-        shell: ls -l
+      ansible.builtin.shell:
+        cmd: ls -l
     - name: master
       ansible.builtin.shell:
         cmd: cd scripts
