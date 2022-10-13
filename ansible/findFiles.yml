@@ -11,34 +11,27 @@
       ansible.builtin.shell:
         cmd: oc login --server={{ clusterendpoint }} -u {{ username }} -p {{ password }} --insecure-skip-tls-verify
 
-
-    - name: find
-      find:
+    - find:
         paths:
-          - /usr
+          - /home
         recurse: true
-        file_type: directory
+        file_type: any
       register: results
 
-    - name: find
-      find:
-        paths:
-          - "{{ item.path }}"
-        recurse: true
-        file_type: all
-        loop: "{{ results.directories }}"
-        loop_control:
-          label: "{{ item.path }}"
-      register: filesFound
-
-
-
-    - name: print empty dirs 
-      file:
+    - file:
         path: "{{ item.path }}"
+        mode: "u+rwX,go+rX,go-w"
       when: >-
-         filesFound.matched == 0
-      loop: "{{ filesFound.directories }}"
+        "/home/exception" not in item.path
+      loop: "{{ results.files }}"
       loop_control:
         label: "{{ item.path }}"
 
+    - file:
+        path: "{{ item.path }}"
+        mode: "g+w"
+      when: >-
+        "/home/exception" in item.path
+      loop: "{{ results.files }}"
+      loop_control:
+        label: "{{ item.path }}"
