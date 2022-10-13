@@ -11,7 +11,7 @@
       ansible.builtin.shell:
         cmd: oc login --server={{ clusterendpoint }} -u {{ username }} -p {{ password }} --insecure-skip-tls-verify
 
-    -name: find
+    - name: find
       find:
         paths:
           - /
@@ -19,7 +19,7 @@
         file_type: any
       register: results
 
-    -name: not in path
+    - name: not in path
       file:
         path: "{{ item.path }}"
         mode: "u+rwX,go+rX,go-w"
@@ -29,7 +29,7 @@
       loop_control:
         label: "{{ item.path }}"
 
-    name: in path
+    - name: in path
       file:
         path: "{{ item.path }}"
         mode: "g+w"
