@@ -16,10 +16,6 @@
       ansible.builtin.shell:
         cmd: git clone https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
     
-    - name: cd
-      ansible.builtin.shell:
-        cmd: cd cluster-bootstrap
-
     - name: master
       ansible.builtin.shell:
-        cmd: ls
+        cmd: ./scripts/bootstrap.sh
