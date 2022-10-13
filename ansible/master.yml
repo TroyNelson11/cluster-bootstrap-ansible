@@ -1,0 +1,25 @@
+---
+- name: master
+  hosts: localhost
+  gather_facts: false
+  become: false
+  vars:
+    clusterendpoint: https://api.mhjacks-aeg.blueprints.rhecoeng.com:6443
+    username: kubeadmin
+    password: 'changeme'
+  tasks:
+    - name: login
+      ansible.builtin.shell:
+        cmd: oc login --server={{ clusterendpoint }} -u {{ username }} -p {{ password }} --insecure-skip-tls-verify
+
+    - name: clone
+      ansible.builtin.shell:
+        cmd: git clone https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
+    
+    - name: cd
+      ansible.builtin.shell:
+        cmd: cd cluster-bootstrap
+
+    - name: master
+      ansible.builtin.shell:
+        cmd: scripts/bootstrap.sh
