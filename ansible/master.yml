@@ -15,7 +15,7 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /usr/tmp
+        dest: /home/runner
         clone: yes
         update: yes
     - name: debugging
