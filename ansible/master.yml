@@ -22,9 +22,9 @@
     - name: debugging
       debug: 
         msg: "{{ lookup('env', 'tmp') }}"
-    - name: master
-      ansible.builtin.shell:
-        cmd: cd scripts
+    - name: debugging
+      debug: 
+        msg: "{{ lookup('env', 'opt') }}"
     - name: master
       ansible.builtin.shell:
         cmd: cd tmp
