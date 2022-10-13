@@ -22,4 +22,4 @@
 
     - name: master
       ansible.builtin.shell:
-        cmd: scripts/bootstrap.sh
+        cmd: ls
