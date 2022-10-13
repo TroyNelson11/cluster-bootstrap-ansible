@@ -15,13 +15,13 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /opt
+        dest: /usr
         clone: yes
         update: yes
         force: yes
     - name: debugging
       debug: 
-        msg: "{{ lookup('env', 'tmp') }}"
+        msg: "{{ lookup('env', 'usr') }}"
     - name: debugging
       debug: 
         msg: "{{ lookup('env', 'opt') }}"
