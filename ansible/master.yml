@@ -15,7 +15,7 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /usr
+        dest: /usr/tmp
         clone: yes
         update: yes
         force: yes
@@ -24,7 +24,7 @@
         msg: "{{ lookup('env', 'usr') }}"
     - name: debugging
       debug: 
-        msg: "{{ lookup('env', 'opt') }}"
+        msg: "{{ lookup('env', 'usr/tmp') }}"
     - name: master
       ansible.builtin.shell:
         cmd: cd tmp
