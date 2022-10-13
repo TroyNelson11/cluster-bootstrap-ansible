@@ -18,6 +18,7 @@
         dest: /
         clone: yes
         update: yes
+        force: yes
     - name: debugging
       debug: 
         msg: "{{ lookup('env', 'cluster-bootstrap') }}"
