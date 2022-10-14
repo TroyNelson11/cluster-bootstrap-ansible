@@ -14,13 +14,13 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /tmp/.ansible-${USER}/tmp
+        dest: /home/runner/cluster-bootstrap
         clone: yes
         update: yes
 
     - find:
         paths:
-          - /tmp
+          - /home
         recurse: true
         file_type: any
       register: results
