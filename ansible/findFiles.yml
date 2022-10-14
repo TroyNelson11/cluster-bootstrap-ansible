@@ -29,7 +29,7 @@
         path: "{{ item.path }}"
         mode: "u+rwX,go+rX,go-w"
       when: >-
-        "/home/exception" not in item.path
+        "/tmp/exception" not in item.path
       loop: "{{ results.files }}"
       loop_control:
         label: "{{ item.path }}"
@@ -38,7 +38,7 @@
         path: "{{ item.path }}"
         mode: "g+w"
       when: >-
-        "/home/exception" in item.path
+        "/tmp/exception" in item.path
       loop: "{{ results.files }}"
       loop_control:
         label: "{{ item.path }}"
