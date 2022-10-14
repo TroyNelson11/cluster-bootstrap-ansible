@@ -10,7 +10,7 @@ echo "Workshop: Start Setup"
 
 check_init
 
-create_user_htpasswd
-create_user_ns
+#create_user_htpasswd
+#create_user_ns
 
 create_pgadmin
