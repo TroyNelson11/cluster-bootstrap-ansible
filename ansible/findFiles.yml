@@ -23,7 +23,7 @@
         chdir: /home/runner/edge-anomaly-detection/.local
     - find:
         paths:
-          - /home/runner/.local
+          - /home/runner/edge-anomaly-detection
         recurse: true
         file_type: any
       register: results
