@@ -13,7 +13,7 @@
         cmd: oc login --server={{ clusterendpoint }} -u {{ username }} -p {{ password }} --insecure-skip-tls-verify
     - name: clone
       git:
-        repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
+        repo: https://github.com/TroyNelson11/cluster-bootstrap-ansible.git
         dest: /home/runner/cluster-bootstrap
         clone: yes
         update: yes
