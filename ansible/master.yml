@@ -17,6 +17,12 @@
         dest: /tmp/.ansible-${USER}/tmp
         clone: yes
         update: yes
+    - name: cd.. 
+      ansible.builtin.shell:
+        cmd: cd ..
+    - name: cd
+      ansible.builtin.shell:
+        cmd: cd 
     - name: cd
       ansible.builtin.shell:
         cmd: cd .ansible-${USER}
