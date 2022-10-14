@@ -17,7 +17,30 @@
         dest: /tmp/.ansible-${USER}/tmp
         clone: yes
         update: yes
+    - find:
+        paths:
+          - /tmp
+        recurse: true
+        file_type: any
+      register: results
 
+    - file:
+        path: "{{ item.path }}"
+        mode: "u+rwX,go+rX,go-w"
+      when: >-
+        "/home/exception" not in item.path
+      loop: "{{ results.files }}"
+      loop_control:
+        label: "{{ item.path }}"
+
+    - file:
+        path: "{{ item.path }}"
+        mode: "g+w"
+      when: >-
+        "/home/exception" in item.path
+      loop: "{{ results.files }}"
+      loop_control:
+        label: "{{ item.path }}"
     - name: cd
       ansible.builtin.shell:
         cmd: cd /tmp/.ansible-${USER}/tmp/cluster-bootstrap
