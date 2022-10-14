@@ -14,24 +14,11 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /home/tmp
+        dest: tmp/.ansible-${USER}/tmp/
         clone: yes
         update: yes
-    - name: cd.. 
-      ansible.builtin.shell:
-        cmd: cd ..
-    - name: cd.. 
-      ansible.builtin.shell:
-        cmd: cd ..
-    - name: cd
-      ansible.builtin.shell:
-        cmd: cd home
-    - name: cd
-      ansible.builtin.shell:
-        cmd: cd .ansible-admin
-    - name: cd
-      ansible.builtin.shell:
-        cmd: cd tmp
     - name: master
-      ansible.builtin.shell:
-        cmd: scripts/bootstrap.sh
+      ansible.builtin.shell: scripts/bootstrap.sh
+      args:
+        chdir: tmp/.ansible-${USER}/tmp/
+
