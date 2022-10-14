@@ -25,7 +25,7 @@
         cmd: cd ..
     - name: cd
       ansible.builtin.shell:
-        cmd: cd tmp
+        cmd: cd home
     - name: cd
       ansible.builtin.shell:
         cmd: cd .ansible-admin
