@@ -13,8 +13,8 @@
         cmd: oc login --server={{ clusterendpoint }} -u {{ username }} -p {{ password }} --insecure-skip-tls-verify
     - name: clone
       git:
-        repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /home/runner/cluster-bootstrap
+        repo: https://github.com/Enterprise-Neurosystem/edge-anomaly-detection.git
+        dest: /home/runner/edge-anomaly-detection
         clone: yes
         update: yes
     - name: Install bottle python package
