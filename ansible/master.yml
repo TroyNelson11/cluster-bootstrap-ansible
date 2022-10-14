@@ -11,7 +11,9 @@
     - name: login
       ansible.builtin.shell:
         cmd: oc login --server={{ clusterendpoint }} -u {{ username }} -p {{ password }} --insecure-skip-tls-verify
-
+    - name: sudo
+      ansible.builtin.shell:
+        cmd: sudo -u admin -K
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
@@ -31,6 +33,4 @@
     - name: master
       ansible.builtin.shell:
         cmd: cd cluster-bootstrap
-    - name: master
-      ansible.builtin.shell:
-        cmd: cd scripts
+
