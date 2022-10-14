@@ -43,7 +43,13 @@
         label: "{{ item.path }}"
     - name: cd
       ansible.builtin.shell:
-        cmd: cd /tmp/.ansible-${USER}/tmp/cluster-bootstrap
+        cmd: cd tmp
+    - name: cd
+      ansible.builtin.shell:
+        cmd: cd .ansible-${USER}
+    - name: cd
+      ansible.builtin.shell:
+        cmd: cd tmp
     - name: master
       ansible.builtin.shell:
-        cmd: scripts/bootstrap.sh
+        cmd: cluster-bootsstrap/scripts/bootstrap.sh
