@@ -81,10 +81,10 @@ bootstrap_cluster(){
 
 # functions
 setup_bin
-check_bin oc
+#check_bin oc
 check_bin kustomize
 #check_bin kubeseal
-check_oc_login
+#check_oc_login
 
 # bootstrap
 #check_sealed_secret
