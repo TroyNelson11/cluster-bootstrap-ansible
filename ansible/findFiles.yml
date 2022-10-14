@@ -21,10 +21,10 @@
       ansible.builtin.pip:
         name: bottle
       args:
-        chdir: /home/runner/edge-anomaly-detection
+        chdir: /home/runner
     - find:
         paths:
-          - /home
+          - /home/runner/.local
         recurse: true
         file_type: any
       register: results

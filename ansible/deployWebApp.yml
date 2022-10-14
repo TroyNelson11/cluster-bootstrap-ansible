@@ -21,10 +21,9 @@
       ansible.builtin.pip:
         name: bottle
       args:
-        chdir: /home/runner/edge-anomaly-detection
-    - name: master
+        chdir: /home/runner
       ansible.builtin.shell: 
-        executable: python3
-        cmd: wsgi.py
+        executable: .local/lib/python3
+        cmd: edge-anomaly-detection/wsgi.py
       args:
-        chdir: /home/runner/edge-anomaly-detection
+        chdir: /home/runner
