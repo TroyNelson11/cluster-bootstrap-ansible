@@ -20,7 +20,7 @@
     - name: Install bottle python package
       ansible.builtin.pip:
         name: bottle
-        chdir: /home/runner/edge-anomaly-detection/.local
+        chdir: /home/runner/edge-anomaly-detection/
     - find:
         paths:
           - /home/runner/edge-anomaly-detection
