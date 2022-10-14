@@ -14,7 +14,7 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /tmp
+        dest: /tmp/.ansible-${USER}/tmp
         clone: yes
         update: yes
 
