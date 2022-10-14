@@ -20,6 +20,6 @@
     - name: master
       ansible.builtin.shell: 
         executable: python3
-        cmd: wsgi.py
+        cmd: edge-anomaly-detection/wsgi.py
       args:
-        chdir: /home/runner/edge-anomaly-detection
+        chdir: /home/runner
