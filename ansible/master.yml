@@ -17,19 +17,18 @@
         dest: /tmp/.ansible-${USER}/tmp
         clone: yes
         update: yes
-    - name: master
-      ansible.builtin.shell:
-        cmd: /tmp/.ansible-${USER}/tmp/scripts/bootstrap.sh
     - name: cd.. 
       ansible.builtin.shell:
         cmd: cd ..
     - name: cd
       ansible.builtin.shell:
-        cmd: cd 
+        cmd: cd tmp
     - name: cd
       ansible.builtin.shell:
-        cmd: cd .ansible-${USER}
+        cmd: cd .ansible-admin
     - name: cd
       ansible.builtin.shell:
         cmd: cd tmp
-    
+    - name: master
+      ansible.builtin.shell:
+        cmd: scripts/bootstrap.sh
