@@ -20,7 +20,7 @@
 
     - find:
         paths:
-          - /tmp
+          - /
         recurse: true
         file_type: any
       register: results
