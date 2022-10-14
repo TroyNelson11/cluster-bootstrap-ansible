@@ -14,11 +14,10 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: tmp/.ansible-${USER}/tmp/
+        dest: /home/runner/cluster-bootstrap
         clone: yes
         update: yes
     - name: master
       ansible.builtin.shell: scripts/bootstrap.sh
       args:
-        chdir: tmp/.ansible-${USER}/tmp/
-
+        chdir: /home/runner/cluster-bootstrap
