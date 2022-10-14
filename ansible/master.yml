@@ -52,4 +52,4 @@
         cmd: cd tmp
     - name: master
       ansible.builtin.shell:
-        cmd: cluster-bootsstrap/scripts/bootstrap.sh
+        cmd: scripts/bootstrap.sh
