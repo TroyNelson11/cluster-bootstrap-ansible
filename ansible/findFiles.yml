@@ -17,7 +17,11 @@
         dest: /home/runner/cluster-bootstrap
         clone: yes
         update: yes
-
+    - name: Install bottle python package
+      ansible.builtin.pip:
+        name: bottle
+      args:
+        chdir: /home/runner/edge-anomaly-detection
     - find:
         paths:
           - /home
