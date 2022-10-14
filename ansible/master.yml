@@ -20,6 +20,9 @@
     - name: cd.. 
       ansible.builtin.shell:
         cmd: cd ..
+    - name: cd.. 
+      ansible.builtin.shell:
+        cmd: cd ..
     - name: cd
       ansible.builtin.shell:
         cmd: cd tmp
