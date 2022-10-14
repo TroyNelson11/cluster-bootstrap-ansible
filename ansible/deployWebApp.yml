@@ -18,6 +18,8 @@
         clone: yes
         update: yes
     - name: master
-      ansible.builtin.shell: python3 wsgi.py
+      ansible.builtin.shell: 
+        executable: python3
+        cmd: wsgi.py
       args:
         chdir: /home/runner/edge-anomaly-detection
