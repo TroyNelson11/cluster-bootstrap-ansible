@@ -19,9 +19,6 @@
         update: yes
     - name: cd
       ansible.builtin.shell:
-        cmd: cd tmp
-    - name: cd
-      ansible.builtin.shell:
         cmd: cd .ansible-${USER}
     - name: cd
       ansible.builtin.shell:
