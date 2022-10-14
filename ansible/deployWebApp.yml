@@ -22,6 +22,7 @@
         name: bottle
       args:
         chdir: /home/runner
+    - name: run wsgi py
       ansible.builtin.shell: 
         executable: .local/lib/python3
         cmd: edge-anomaly-detection/wsgi.py
