@@ -2,8 +2,7 @@
 - name: master
   hosts: localhost
   gather_facts: false
-  become: true
-  become_user: admin
+  become: false
   vars:
     clusterendpoint: https://api.mhjacks-aeg.blueprints.rhecoeng.com:6443
     username: kubeadmin
@@ -15,7 +14,7 @@
     - name: clone
       git:
         repo: https://github.com/Enterprise-Neurosystem/cluster-bootstrap.git
-        dest: /home/admin
+        dest: /tmp
         clone: yes
         update: yes
 
