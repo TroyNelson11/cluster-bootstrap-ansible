@@ -16,12 +16,19 @@ spec:
       mappingMethod: claim
       name: GitHubEN
       type: GitHub
-    - htpasswd:
-        fileData:
-          name: workshop-htpasswd
+    - github:
+        ca:
+          name: ''
+        clientID: b2911d2919b6bdf2ec0d
+        clientSecret:
+          name: workshop-users
+        hostname: ''
+        organizations:
+          - Edge-Anomaly-Workshop
       mappingMethod: claim
-      name: WorkshopAttendees
-      type: HTPasswd
+      name: workshop-users
+      type: GitHub
+    
   templates:
     error:
       name: osd-oauth-templates-errors
