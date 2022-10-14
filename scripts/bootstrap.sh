@@ -89,4 +89,4 @@ check_oc_login
 # bootstrap
 #check_sealed_secret
 install_gitops
-bootstrap_cluster
+#bootstrap_cluster
