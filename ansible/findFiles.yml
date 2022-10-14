@@ -18,11 +18,9 @@
         clone: yes
         update: yes
     - name: Install bottle python package
-      args:
-        chdir: /home/runner/edge-anomaly-detection
       ansible.builtin.pip:
         name: bottle
-      
+        chdir: /home/runner/edge-anomaly-detection
     - find:
         paths:
           - /home/runner/.local
