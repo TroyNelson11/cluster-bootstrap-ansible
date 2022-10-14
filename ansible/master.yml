@@ -18,16 +18,9 @@
         clone: yes
         update: yes
 
-    - name: debugging
-      debug: 
-        msg: "{{ lookup('env', 'home/') }}"
-    - name: debugging
-      debug: 
-        msg: "{{ lookup('env', 'home/admin') }}"
+    - name: cd
+      ansible.builtin.shell:
+        cmd: cd /tmp/.ansible-${USER}/tmp/cluster-bootstrap
     - name: master
       ansible.builtin.shell:
-        cmd: cd usr/tmp
-    - name: master
-      ansible.builtin.shell:
-        cmd: cd cluster-bootstrap
-
+        cmd: scripts/bootstrap.sh
