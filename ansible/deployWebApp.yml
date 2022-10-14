@@ -20,8 +20,7 @@
     - name: Install bottle python package
       ansible.builtin.pip:
         name: bottle
-      args:
-        chdir: /home/runner
+        chdir: /home/runner/edge-anomaly-detection/.local
     - name: run wsgi py
       ansible.builtin.shell: 
         executable: .local/lib/python3.8
